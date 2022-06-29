@@ -20,6 +20,7 @@
         <module>hello_world</module>
         <module>jdbc_usage</module>
         <module>mybatis_xml_usage</module>
+	    <module>gui_tool</module>
     </modules>
 
     <dependencies>
