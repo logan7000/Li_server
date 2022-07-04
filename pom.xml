@@ -41,10 +41,9 @@
 		<module>jdbc_usage</module>
 		<module>mybatis_xml_usage</module>
 		<module>gui_tool</module>
-		<!--hello world-->
 		<module>springboot_helloworld</module>
-		<!--读取配置文件-->
 		<module>springboot_properties</module>
+		<module>springboot_actuator</module>
 	</modules>
 
 	<dependencyManagement>
