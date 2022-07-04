@@ -14,6 +14,14 @@ public class App {
     }
 
     public static void main(String[] args) {
+        FlatLightLaf.setup();
+        UIManager.put("Button.arc", 0);
+        UIManager.put("Component.arc", 0);
+        UIManager.put("CheckBox.arc", 0);
+        UIManager.put("ProgressBar.arc", 0);
+    }
+
+    public static void runIdeaTools() {
         JTextArea jTextArea = new JTextArea();
         JButton cleanButton = new JButton(new FlatClearIcon());
         TabFrameItem tabFrameItem = new TabFrameItem(
