@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.learn</groupId>
-    <artifactId>java_learn</artifactId>
+    <groupId>org.li</groupId>
+    <artifactId>li_server</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -31,6 +31,7 @@
         <module>springboot_properties</module>
         <module>springboot_actuator</module>
         <module>springboot_admin</module>
+        <module>li-logback</module>
     </modules>
     <!--定义阿里云仓库-->
     <repositories>
