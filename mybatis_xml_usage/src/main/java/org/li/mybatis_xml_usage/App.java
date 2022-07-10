@@ -22,7 +22,7 @@ public class App {
     // 使用XML来运行mybatis
     public static void runMybatisByXml() throws IOException {
         // resource 目录下，在build后，会和当前包合并在一起
-        String resource = "org/li/mybatis_xml_usage/mybatis-config.xml";
+        final String resource = "org/li/mybatis_xml_usage/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
