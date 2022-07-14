@@ -33,6 +33,7 @@
         <module>springboot_admin</module>
         <module>li-logback</module>
         <module>vertx-start</module>
+        <module>leetcode</module>
     </modules>
     <!--定义阿里云仓库-->
     <repositories>
