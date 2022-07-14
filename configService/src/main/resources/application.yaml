@@ -1,0 +1,19 @@
+server:
+  port: 8085
+spring:
+  datasource:
+    #    schema: classpath:db/schema.sql
+    #    data: classpath:db/data.sql
+    sql-script-encoding: UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://43.135.50.171:3306/li_server
+    username: root
+    password: Logan@123
+  jpa:
+    hibernate:
+      #      不自动更新
+      ddl-auto: none
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect

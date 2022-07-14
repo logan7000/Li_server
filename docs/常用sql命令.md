@@ -3,7 +3,7 @@
 #### 创建数据库
 
 ```mysql
-CREATE DATABASE `task_app` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE `li_server` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 
 #### 删除数据库
