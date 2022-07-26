@@ -33,7 +33,6 @@
         <module>springboot_admin</module>
         <module>li-logback</module>
         <module>vertx-start</module>
-        <module>leetcode</module>
         <module>examples</module>
         <module>configService</module>
     </modules>
@@ -65,6 +64,13 @@
                 <artifactId>swagger-annotations</artifactId>
                 <version>1.6.6</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
