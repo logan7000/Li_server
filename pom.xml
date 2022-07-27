@@ -23,11 +23,6 @@
         <user.agent.version>1.20</user.agent.version>
     </properties>
     <modules>
-        <module>hello_world</module>
-        <module>jdbc_usage</module>
-        <module>mybatis_xml_usage</module>
-        <module>gui_tool</module>
-        <module>springboot_helloworld</module>
         <module>springboot_properties</module>
         <module>springboot_actuator</module>
         <module>springboot_admin</module>
