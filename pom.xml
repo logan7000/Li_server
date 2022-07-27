@@ -31,6 +31,7 @@
         <module>examples</module>
         <module>configService</module>
         <module>java_lambda</module>
+        <module>springboot_examples</module>
     </modules>
     <!--定义阿里云仓库-->
     <repositories>
