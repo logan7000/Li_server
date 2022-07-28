@@ -23,6 +23,15 @@ public class UserMapperTest extends SpringBootExamplesAppTest {
     public void selectAllUser() {
         List<User> userList = userMapper.selectAllUser();
         Assert.assertTrue(CollUtil.isNotEmpty(userList));
-        log.debug("【userList】= {}", userList);
+        log.info("【userList】= {}", userList);
+    }
+
+    @Test
+    public void saveUser() {
+        User user = User.builder().name("jack").build();
+        User user1 = new User(1, "lucy");
+        int affectCount = userMapper.saveUser(user1);
+        log.info("插入的user数据",affectCount);
+        Assert.assertEquals(1, affectCount);
     }
 }
