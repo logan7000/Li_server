@@ -28,10 +28,25 @@ public class UserMapperTest extends SpringBootExamplesAppTest {
 
     @Test
     public void saveUser() {
-        User user = User.builder().name("jack").build();
-        User user1 = new User(1, "lucy");
-        int affectCount = userMapper.saveUser(user1);
-        log.info("插入的user数据",affectCount);
+        User user = User.builder().name("jack").id(10).build();
+        int affectCount = userMapper.saveUser(user);
+        log.info("插入的user数据", affectCount);
         Assert.assertEquals(1, affectCount);
+    }
+
+    @Test
+    public void updateUser() {
+        User user = User.builder().id(10).build();
+        int num = userMapper.updateUser(user.getId());
+        log.info("更新的user数据", num);
+        Assert.assertEquals(1, num);
+    }
+
+    @Test
+    public void deleteUser() {
+        User user = User.builder().id(10).build();
+        int num = userMapper.deleteById(user.getId());
+        log.info("删除的user数据", num);
+        Assert.assertEquals(1, num);
     }
 }
