@@ -5,7 +5,8 @@ server:
 spring:
     data:
         mongodb:
-            host: 43.135.50.171
+#            uri : 'mongodb://localhost:27017/article_db'
+            host: localhost
             port: 27017
             database: article_db
     profiles:
