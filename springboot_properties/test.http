@@ -1,4 +1,0 @@
-GET http://localhost:8081/demo/property
-Accept: application/json
-
-###

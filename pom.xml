@@ -24,7 +24,6 @@
         <mybatis.version>1.3.2</mybatis.version>
     </properties>
     <modules>
-        <module>springboot_properties</module>
         <module>springboot_actuator</module>
         <module>springboot_admin</module>
         <module>li-logback</module>
