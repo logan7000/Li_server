@@ -1,7 +1,7 @@
 server:
     port: 8086
     servlet:
-        context-path: /examples
+        context-path: /api
 spring:
     thymeleaf:
         cache: false
@@ -38,6 +38,8 @@ spring:
             pool-name: SpringBootDemoHikariCP
             max-lifetime: 60000
             connection-timeout: 30000
+    resources:
+        static-locations: classpath:/static/,classpath:/static/vendor/,classpath:/templates/
 logging:
     level:
         com.xkcoding: debug
