@@ -3,9 +3,15 @@ server:
     servlet:
         context-path: /examples
 spring:
+    thymeleaf:
+        cache: false
+        suffix: .html
+        prefix: classpath:/templates/
+    application:
+        name: springboot_examples
     data:
         mongodb:
-#            uri : 'mongodb://localhost:27017/article_db'
+            #            uri : 'mongodb://localhost:27017/article_db'
             host: 43.135.50.171
             port: 27017
             database: article_db
