@@ -3,7 +3,23 @@ GET http://localhost:8086/examples/property
 Accept: application/json
 
 ### add mongodb
-POST http://localhost:8086/api/add
+POST {{host}}/add
 Content-Type: application/x-www-form-urlencoded
-
 id=99&content=new-element
+
+### path路径参数
+GET {{host}}/param/path/jack1
+Accept: application/json
+
+### path query 参数
+GET {{host}}/param/query?name=jack
+Accept: application/json
+
+### post params-body
+POST {{host}}/param/body
+Content-Type: application/json
+
+{
+  "id":1,
+  "name":"jack"
+}
