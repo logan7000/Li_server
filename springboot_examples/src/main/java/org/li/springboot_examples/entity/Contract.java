@@ -5,11 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Contract {
+public class Contract  implements Serializable {
+
+
+    private static final long serialVersionUID = 4538387266033459077L;
     //adminName: "顾娟"
     String adminName;
     //amount: "170,000,000"

@@ -18,7 +18,7 @@ public class APIResultTO<T extends Serializable> extends BaseTO {
     /**
      * 响应状态码
      */
-    private Integer code;
+    private String code;
     /**
      * 响应数据
      */
@@ -38,7 +38,7 @@ public class APIResultTO<T extends Serializable> extends BaseTO {
      */
     public static <K extends Serializable> APIResultTO<K> buildSuccess(K data) {
         APIResultTO<K> result = new APIResultTO<>();
-        result.setCode(0);
+        result.setCode("0");
         result.setData(data);
         result.setMessage("");
         return result;
@@ -53,7 +53,7 @@ public class APIResultTO<T extends Serializable> extends BaseTO {
      */
     public static <K extends Serializable> APIResultTO<K> buildFailed(K data, String message) {
         APIResultTO<K> result = new APIResultTO<>();
-        result.setCode(-1);
+        result.setCode("-1");
         result.setData(data);
         result.setMessage("");
         return result;
