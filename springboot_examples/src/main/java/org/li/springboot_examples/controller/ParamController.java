@@ -37,4 +37,34 @@ public class ParamController {
     public User bodyParam(@RequestBody() User user) {
         return user;
     }
+
+    /**
+     * 去参数
+     * @param userName
+     * @return
+     */
+    @PostMapping("/post")
+    public String post(@RequestParam(name = "name") String userName) {
+        return userName;
+    }
+
+    /**
+     * 可以不用一个个去取参数
+     * @param user
+     * @return
+     */
+    @PostMapping("/postObject")
+    public User post(User user) {
+        return user;
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping("/form-data")
+    public User formData(User user) {
+        return user;
+    }
 }

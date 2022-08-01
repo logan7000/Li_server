@@ -15,7 +15,7 @@ Accept: application/json
 GET {{host}}/param/query?name=jack
 Accept: application/json
 
-### post params-body
+### post text-body json
 POST {{host}}/param/body
 Content-Type: application/json
 
@@ -23,3 +23,30 @@ Content-Type: application/json
   "id":1,
   "name":"jack"
 }
+
+### post application/x-www-form-urlencoded
+POST {{host}}/param/post
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name='jack'
+
+### post application/x-www-form-urlencoded object
+POST {{host}}/param/postObject
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name='jack'
+
+
+
+### form-data提交(无文件)
+POST {{host}}/param/form-data
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="my-data"
+
+id-1
+name-jack
+--WebAppBoundary--
+
+###
