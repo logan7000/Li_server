@@ -67,6 +67,13 @@ public class APIResultTO<T extends Serializable> extends BaseTO {
         return result;
     }
 
+
+    public static <K extends Serializable> APIResultTO<K> buildFailed(String message) {
+        APIResultTO<K> result = new APIResultTO<>();
+        result.setCode("-1");
+        result.setMessage(message);
+        return result;
+    }
     public static <K extends Serializable> APIResultTO<K> buildFailed(ErrorCodeEnum errorCodeEnum) {
         APIResultTO<K> result = new APIResultTO<>();
         result.setCode(errorCodeEnum.getCode());

@@ -1,0 +1,12 @@
+### validate
+POST {{host}}/validate/user2
+Content-Type: application/json
+
+{
+  "name": "jack"
+}
+
+###
+### [GET]
+GET {{host}}/user
+Accept: application/json
