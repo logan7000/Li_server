@@ -1,3 +1,32 @@
+### [POST] form-data uploadfiles and fields
+# curl --location --request POST 'localhost:8086/api/param/form-data'
+#--form 'name="jack"'
+#--form 'id="30"'
+#--form 'file=@"/Users/yunlong/Pictures/多啦Ameng.jpg"'
+#--form 'file2=@"/Users/yunlong/Pictures/21121122112122.png"'
+POST localhost:8086/api/param/form-data
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+jack
+--WebAppBoundary
+Content-Disposition: form-data; name="id"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="user.js"
+
+./files/user.js
+--WebAppBoundary
+Content-Disposition: form-data; name="file2"; filename="user.js"
+
+./files/user.js
+--WebAppBoundary--
+
+
+
 
 
 
@@ -56,3 +85,5 @@ Content-Disposition: form-data; name="name"
 
 jack
 --WebAppBoundary--
+
+
