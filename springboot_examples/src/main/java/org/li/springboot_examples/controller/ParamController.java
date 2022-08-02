@@ -1,10 +1,12 @@
 package org.li.springboot_examples.controller;
 
+import org.li.springboot_examples.dto.APIResultTO;
 import org.li.springboot_examples.entity.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/param")
@@ -26,8 +28,8 @@ public class ParamController {
      * @return
      */
     @GetMapping("/query")
-    public String pathParam(@RequestParam(value = "name") String userName) {
-        return String.format("接收到name参数： %s", userName);
+    public APIResultTO<String> queryParam(@RequestParam(value = "name") String userName) {
+        return APIResultTO.buildSuccess("your query params is " + userName);
     }
 
     /**
@@ -37,8 +39,8 @@ public class ParamController {
      * @return
      */
     @PostMapping("/body")
-    public User bodyParam(@RequestBody() User user) {
-        return user;
+    public APIResultTO<User> bodyParam(@RequestBody() User user) {
+        return APIResultTO.buildSuccess(user,"your body is user");
     }
 
     /**
@@ -53,14 +55,14 @@ public class ParamController {
     }
 
     /**
-     * 可以不用一个个去取参数
-     *
-     * @param user
-     * @return
+     * 可以只取一个参数
      */
-    @PostMapping("/postObject")
-    public User post(User user) {
-        return user;
+    @PostMapping("/post-key")
+    public APIResultTO<HashMap<String, Object>> post(@RequestParam(name = "name") String userName, @RequestParam(name = "id",required = false) int id) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("name",userName);
+        hashMap.put("id",id);
+        return APIResultTO.buildSuccess(hashMap,"your key is in data");
     }
 
     /**
@@ -68,7 +70,7 @@ public class ParamController {
      * @return
      */
     @PostMapping("/form-data")
-    public User formData(User user, @RequestParam("file") MultipartFile file , @RequestParam("file2") MultipartFile file2, HttpServletRequest request) {
+    public User formData(User user, @RequestParam(value = "file",required = false) MultipartFile file , @RequestParam(value = "file2",required = false) MultipartFile file2, HttpServletRequest request) {
         System.out.println(user);
         System.out.println(file);
         System.out.println(file2);

@@ -4,7 +4,7 @@
 #--form 'id="30"'
 #--form 'file=@"/Users/yunlong/Pictures/多啦Ameng.jpg"'
 #--form 'file2=@"/Users/yunlong/Pictures/21121122112122.png"'
-POST localhost:8086/api/param/form-data
+POST {{host}}/param/form-data
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
@@ -30,47 +30,39 @@ Content-Disposition: form-data; name="file2"; filename="user.js"
 
 
 
-### 获取属性
-GET http://localhost:8086/examples/property
+
+### [GET] path variables
+GET {{host}}/param/path/somevar
 Accept: application/json
 
-### add mongodb
-POST {{host}}/add
-Content-Type: application/x-www-form-urlencoded
-id=99&content=new-element
-
-### path路径参数
-GET {{host}}/param/path/jack1
-Accept: application/json
-
-### path query 参数
+### [GET] path query
 GET {{host}}/param/query?name=jack
 Accept: application/json
 
-### post text-body json
+### [POST] body json
 POST {{host}}/param/body
 Content-Type: application/json
 
 {
-  "id":1,
-  "name":"jack"
+  "id": 1,
+  "name": "jack"
 }
 
-### post application/x-www-form-urlencoded
+### [POST] application/x-www-form-urlencoded
+POST {{host}}/param/post-key
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name='jack'
+
+### [POST] application/x-www-form-urlencoded
 POST {{host}}/param/post
 Content-Type: application/x-www-form-urlencoded
 
 id=1&name='jack'
 
-### post application/x-www-form-urlencoded object
-POST {{host}}/param/postObject
-Content-Type: application/x-www-form-urlencoded
-
-id=1&name='jack'
 
 
-
-### [post] form提交（无文件）
+### [post] form submit fields
 
 POST {{host}}/param/form-data
 Content-Type: multipart/form-data; boundary=WebAppBoundary

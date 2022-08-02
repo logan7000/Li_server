@@ -44,6 +44,14 @@ public class APIResultTO<T extends Serializable> extends BaseTO {
         return result;
     }
 
+    public static <K extends Serializable> APIResultTO<K> buildSuccess(K data, String message) {
+        APIResultTO<K> result = new APIResultTO<>();
+        result.setCode("0");
+        result.setData(data);
+        result.setMessage(message);
+        return result;
+    }
+
     /**
      * 构建失败
      *
