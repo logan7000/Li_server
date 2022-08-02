@@ -2,6 +2,9 @@ package org.li.springboot_examples.controller;
 
 import org.li.springboot_examples.entity.User;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/param")
@@ -40,6 +43,7 @@ public class ParamController {
 
     /**
      * 去参数
+     *
      * @param userName
      * @return
      */
@@ -50,6 +54,7 @@ public class ParamController {
 
     /**
      * 可以不用一个个去取参数
+     *
      * @param user
      * @return
      */
@@ -59,12 +64,18 @@ public class ParamController {
     }
 
     /**
-     *
      * @param user
      * @return
      */
     @PostMapping("/form-data")
-    public User formData(User user) {
+    public User formData(User user, @RequestParam("file") MultipartFile file , @RequestParam("file2") MultipartFile file2, HttpServletRequest request) {
+        System.out.println(user);
+        System.out.println(file);
+        System.out.println(file2);
+        String id = request.getParameter("id");
+        String title = request.getParameter("name");
+        System.out.println("获取到字段:" + id);
+        System.out.println("获取到字段:" + title);
         return user;
     }
 }
