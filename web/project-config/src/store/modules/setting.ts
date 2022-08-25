@@ -52,8 +52,8 @@ export const useSettingStore = defineStore("setting", {
     },
     addColor (payload: TColorSeries) {
       this.colorList = { ...this.colorList, ...payload };
-    }
-    /* updateConfig (payload: Partial<TState>) {
+    },
+    updateConfig (payload: Partial<TState>) {
       for (const key in payload) {
         if (payload[key] !== undefined) {
           this[key] = payload[key];
@@ -65,7 +65,7 @@ export const useSettingStore = defineStore("setting", {
           this.changeBrandTheme(payload[key]);
         }
       }
-    } */
+    }
   }
 });
 
