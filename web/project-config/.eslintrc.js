@@ -14,7 +14,10 @@ module.exports = {
   rules: {
     semi: ["error", "always"],
     quotes: ["error", "double"],
+    // 组件必须多名组合使用
     "vue/multi-word-component-names": "off",
+    // 未使用的组件
+    "vue/no-unused-components": "warn",
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
   },

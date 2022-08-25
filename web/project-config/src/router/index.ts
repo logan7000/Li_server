@@ -28,11 +28,6 @@ const asyncRouters: Array<RouteRecordRaw> = [
 
 // 默认路由（常驻路由）
 const defaultRouters: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView
-  },
   ...asyncRouters
 ];
 
