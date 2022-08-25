@@ -27,7 +27,6 @@
         <module>springboot_actuator</module>
         <module>springboot_admin</module>
         <module>li-logback</module>
-        <module>vertx_examples</module>
         <module>examples</module>
         <module>configService</module>
         <module>java_lambda</module>
