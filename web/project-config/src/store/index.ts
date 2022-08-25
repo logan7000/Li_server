@@ -1,14 +1,13 @@
-import { createStore } from "vuex";
+import { createPinia } from "pinia";
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-});
+const store = createPinia();
+
+export { store };
+
+// export * from "./modules/notification";
+// export * from "./modules/permission";
+// export * from "./modules/user";
+export * from "./modules/setting";
+// export * from "./modules/tabs-router";
+
+export default store;

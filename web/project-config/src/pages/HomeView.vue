@@ -1,14 +1,14 @@
 <template>
   <div class="home">
-      <t-base-table
-        row-key="index"
-        :data="data"
-        :columns="columns"
-        :maxHeight="140"
-        :pagination="{ total: 30 }"
-      />
-<!--    <img alt="Vue logo" src="../assets/logo.png">-->
-<!--    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>-->
+    <t-base-table
+      row-key="index"
+      :data="data"
+      :columns="columns"
+      :maxHeight="140"
+      :pagination="{ total: 30 }"
+    />
+    <!--    <img alt="Vue logo" src="../assets/logo.png">-->
+    <!--    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>-->
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw, useRoute } from "vue-router";
 import HomeView from "@/pages/HomeView.vue";
 import baseRouters from "./modules/baseRouters";
 
@@ -39,4 +39,16 @@ const router = createRouter({
   routes: defaultRouters
 });
 
+/**
+ * 获取当前焦点的路由
+ * @param maxLevel
+ */
+export const getActive = (maxLevel = 3): string => {
+  const route = useRoute();
+  if (!route.path) return "";
+  // 当前获取到焦点的过滤器
+  const activeFilter = (item: string, index: number) => index <= maxLevel && index > 0;
+  return route.path.split("/").filter(activeFilter).map((item: string) => `/${item}`).join("");
+  return "";
+};
 export default router;
