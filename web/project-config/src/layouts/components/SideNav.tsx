@@ -1,8 +1,8 @@
 import { defineComponent, PropType, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { union } from "lodash";
+import union from "lodash/union";
 import { prefix } from "@/config/global";
-import pgk from "../../../../project-config/package.json";
+import pgk from "../../../package.json";
 import MenuContent from "./MenuContent";
 import { useSettingStore } from "@/store";
 import { getActive, getRoutesExpanded } from "@/router";
@@ -148,10 +148,10 @@ export default defineComponent({
                 <span class={`${prefix}-side-nav-logo-wrapper`} onClick={this.goHome}>
                   {this.collapsed
                     ? (
-                      <asset-logo class={`${prefix}-side-nav-logo-t-logo`}/>
+                    <asset-logo class={`${prefix}-side-nav-logo-t-logo`}/>
                       )
                     : (
-                      <asset-logo-full class={`${prefix}-side-nav-logo-tdesign-logo`}/>
+                    <asset-logo-full class={`${prefix}-side-nav-logo-tdesign-logo`}/>
                       )}
                 </span>
               ),

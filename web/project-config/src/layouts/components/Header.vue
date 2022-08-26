@@ -3,60 +3,58 @@
     <t-head-menu :class="menuCls" :theme="theme" expand-type="popup" :value="active">
       <template #logo>
         <span v-if="showLogo" class="header-logo-container" @click="handleNav('/dashboard/base')">
-          <logo-full class="t-logo"/>
+<!--          <logo-full class="t-logo" />-->
         </span>
         <div v-else class="header-operate-left">
           <t-button theme="default" shape="square" variant="text" @click="changeCollapsed">
-            <t-icon class="collapsed-icon" name="view-list"/>
+            <t-icon class="collapsed-icon" name="view-list" />
           </t-button>
-          <search :layout="layout"/>
+          <search :layout="layout" />
         </div>
       </template>
-      <menu-content v-show="layout !== 'side'" class="header-menu" :nav-data="menu"/>
+      <menu-content v-show="layout !== 'side'" class="header-menu" :nav-data="menu" />
       <template #operations>
         <div class="operations-container">
           <!-- 搜索框 -->
-          <search v-if="layout !== 'side'" :layout="layout"/>
+          <search v-if="layout !== 'side'" :layout="layout" />
 
           <!-- 全局通知 -->
-          <notice/>
+          <notice />
 
           <t-tooltip placement="bottom" content="代码仓库">
             <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
-              <t-icon name="logo-github"/>
+              <t-icon name="logo-github" />
             </t-button>
           </t-tooltip>
           <t-tooltip placement="bottom" content="帮助文档">
             <t-button theme="default" shape="square" variant="text" @click="navToHelper">
-              <t-icon name="help-circle"/>
+              <t-icon name="help-circle" />
             </t-button>
           </t-tooltip>
           <t-dropdown :min-column-width="135" trigger="click">
             <template #dropdown>
               <t-dropdown-menu>
                 <t-dropdown-item class="operations-dropdown-container-item" @click="handleNav('/user/index')">
-                  <t-icon name="user-circle"></t-icon>
-                  个人中心
+                  <t-icon name="user-circle"></t-icon>个人中心
                 </t-dropdown-item>
                 <t-dropdown-item class="operations-dropdown-container-item" @click="handleLogout">
-                  <t-icon name="poweroff"></t-icon>
-                  退出登录
+                  <t-icon name="poweroff"></t-icon>退出登录
                 </t-dropdown-item>
               </t-dropdown-menu>
             </template>
             <t-button class="header-user-btn" theme="default" variant="text">
               <template #icon>
-                <t-icon class="header-user-avatar" name="user-circle"/>
+                <t-icon class="header-user-avatar" name="user-circle" />
               </template>
               <div class="header-user-account">
                 Tencent
-                <t-icon name="chevron-down"/>
+                <t-icon name="chevron-down" />
               </div>
             </t-button>
           </t-dropdown>
           <t-tooltip placement="bottom" content="系统设置">
             <t-button theme="default" shape="square" variant="text">
-              <t-icon name="setting" @click="toggleSettingPanel"/>
+              <t-icon name="setting" @click="toggleSettingPanel" />
             </t-button>
           </t-tooltip>
         </div>
@@ -71,7 +69,6 @@ import { useRouter } from "vue-router";
 import { useSettingStore } from "@/store";
 import { getActive } from "@/router";
 import { prefix } from "@/config/global";
-import LogoFull from "@/assets/logo.png?component";
 import { MenuRoute } from "@/types/interface";
 
 import Notice from "./Notice.vue";
@@ -123,11 +120,7 @@ const active = computed(() => getActive());
 const layoutCls = computed(() => [`${prefix}-header-layout`]);
 
 const menuCls = computed(() => {
-  const {
-    isFixed,
-    layout,
-    isCompact
-  } = props;
+  const { isFixed, layout, isCompact } = props;
   return [
     {
       [`${prefix}-header-menu`]: !isFixed,
@@ -162,7 +155,6 @@ const navToHelper = () => {
 </script>
 <style lang="less" scoped>
 @import '@/style/variables.less';
-
 .@{starter-prefix}-header {
   &-layout {
     height: 64px;
@@ -179,7 +171,6 @@ const navToHelper = () => {
       z-index: 10;
       width: auto;
       transition: all 0.3s;
-
       &-compact {
         left: 64px;
       }
@@ -192,7 +183,6 @@ const navToHelper = () => {
     height: 64px;
   }
 }
-
 .header-menu {
   flex: 1 1 1;
   display: inline-flex;
@@ -216,7 +206,6 @@ const navToHelper = () => {
 
   .t-button {
     margin: 0 8px;
-
     &.header-user-btn {
       margin: 0;
     }
@@ -224,7 +213,6 @@ const navToHelper = () => {
 
   .t-icon {
     font-size: 20px;
-
     &.general {
       margin-right: 16px;
     }
@@ -252,7 +240,6 @@ const navToHelper = () => {
   .t-logo {
     width: 100%;
     height: 100%;
-
     &:hover {
       cursor: pointer;
     }
@@ -267,7 +254,6 @@ const navToHelper = () => {
   display: inline-flex;
   align-items: center;
   color: var(--td-text-color-primary);
-
   .t-icon {
     margin-left: 4px;
     font-size: 16px;
@@ -283,19 +269,15 @@ const navToHelper = () => {
     color: var(--td-text-color-primary);
   }
 }
-
 .t-menu--dark {
   .t-head-menu__inner {
     border-bottom: 1px solid var(--td-gray-color-10);
   }
-
   .header-user-account {
     color: rgba(255, 255, 255, 0.55);
   }
-
   .t-button {
     --ripple-color: var(--td-gray-color-10) !important;
-
     &:hover {
       background: var(--td-gray-color-12) !important;
     }
@@ -316,7 +298,6 @@ const navToHelper = () => {
       display: flex;
       justify-content: center;
     }
-
     .t-dropdown__item__content__text {
       display: flex;
       align-items: center;
@@ -328,7 +309,6 @@ const navToHelper = () => {
     width: 100%;
     margin-bottom: 0px;
   }
-
   &:last-child {
     :deep(.t-dropdown__item) {
       margin-bottom: 8px;

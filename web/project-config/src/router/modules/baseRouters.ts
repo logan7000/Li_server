@@ -1,12 +1,13 @@
 import { DashboardIcon } from "tdesign-icons-vue-next";
 
-// import Layout from "@/layouts/index.vue";
+import Layout from "@/layouts";
 import BlankLayout from "@/layouts/blank.vue";
 
 export default [
   {
     path: "/base",
-    component: BlankLayout,
+    // component: BlankLayout,
+    component: Layout,
     redirect: "/base/hello",
     name: "base",
     meta: {

@@ -4,10 +4,10 @@ import router, { asyncRouterList } from "@/router";
 import { store } from "@/store";
 
 function filterPermissionsRouters (routes: Array<RouteRecordRaw>, roles: Array<unknown>) {
-  const res: RouteRecordRaw[] = [];
-  const removeRoutes: RouteRecordRaw[] = [];
+  const res = [];
+  const removeRoutes = [];
   routes.forEach((route) => {
-    const children: RouteRecordRaw[] = [];
+    const children = [];
     route.children?.forEach((childRouter) => {
       const roleCode = childRouter.meta?.roleCode || childRouter.name;
       if (roles.indexOf(roleCode) !== -1) {
@@ -28,7 +28,7 @@ function filterPermissionsRouters (routes: Array<RouteRecordRaw>, roles: Array<u
 }
 
 export const usePermissionStore = defineStore("permission", {
-  state: ():{whiteListRouters:string[], routers:RouteRecordRaw[], removeRoutes:RouteRecordRaw[]} => ({
+  state: () => ({
     whiteListRouters: ["/login"],
     routers: [],
     removeRoutes: []
@@ -37,7 +37,7 @@ export const usePermissionStore = defineStore("permission", {
     async initRoutes (roles: Array<unknown>) {
       let accessedRouters = [];
 
-      let removeRoutes:RouteRecordRaw[] = [];
+      let removeRoutes = [];
       // special token
       if (roles.includes("all")) {
         accessedRouters = asyncRouterList;

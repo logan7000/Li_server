@@ -1,38 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw, useRoute } from "vue-router";
-import HomeView from "@/pages/HomeView.vue";
 import uniq from "lodash/uniq";
-
-// 示例路由代码，仅做展示用
-const examplesRoutes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ "@/pages/AboutView.vue")
-  }
-];
-
-// 自动导入modules文件夹下所有ts文件
-const modules = require.context("./modules", true, /\.ts$/);
-// const modules = import.meta.globEager("./modules/**/*.ts");
-
-const routeModuleList: Array<RouteRecordRaw> = [];
-
-Object.keys(modules).forEach((key) => {
-  const mod = modules[key].default || {};
-  const modList = Array.isArray(mod) ? [...mod] : [mod];
-  routeModuleList.push(...modList);
-});
+import baseRouters from "@/router/modules/baseRouters";
 
 // 动态路由
-export const asyncRouterList: Array<RouteRecordRaw> = [...routeModuleList];
+export const asyncRouterList: Array<RouteRecordRaw> = [
+  ...baseRouters
+];
 
 // 默认路由（常驻路由）
 const defaultRouterList: Array<RouteRecordRaw> = [];
@@ -74,13 +47,6 @@ export const getActive = (maxLevel = 3): string => {
  */
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes: allRoutes,
-  scrollBehavior () {
-    return {
-      el: "#app",
-      top: 0,
-      behavior: "smooth"
-    };
-  }
+  routes: allRoutes
 });
 export default router;
